@@ -19,28 +19,31 @@ import Preloader from "./components/Preloader/Preloader"; // Импорт пре
 const pageVariants = {
   initial: { opacity: 0, scale: 0.95 },
   animate: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
-  exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } }
+  exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } },
 };
 
 const App = () => {
   const [bikes, setBikes] = useState([]);
   const [auth, setAuth] = useState(false);
-  const [loading, setLoading] = useState(true); // Стейт для отображения прелоадера
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000); // Имитация загрузки данных (2 секунды)
-  }, []);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/projects")
+    fetch("/product.json")
       .then((res) => res.json())
-      .then((data) => setBikes(data))
-      .catch((err) => console.error("Ошибка загрузки данных", err));
+      .then((data) => {
+        if (data.projects && Array.isArray(data.projects)) {
+          setBikes(data.projects);
+        } else {
+          console.error("Ошибка: 'projects' должен быть массивом", data);
+        }
+      })
+      .catch((err) => console.error("Ошибка загрузки данных", err))
+      .finally(() => setLoading(false));
   }, []);
 
   if (loading) {
-    return <Preloader />; // Показываем прелоадер, пока загружается контент
+    return <Preloader />;
   }
 
   return (
