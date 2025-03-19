@@ -54,6 +54,29 @@ const Arenda = ({ bikes = [] }) => {
     <section className={s.arenda}>
       <Toaster />
       <div className="container">
+        {/* Верхний блок с бонусами */}
+        <div className={s.freeItems}>
+          <p className={s.txt}>Аренда велосипедов с доставкой</p>
+          <div className={s.free}>
+            <div className={s.item} data-aos="fade-left">
+              <img className={s.gmi1} src="/Frame 21.png" alt="Шлем" />
+              <p className={s.xt}>Шлем</p>
+              <span className={s.frp}>Бесплатно</span>
+            </div>
+            <div className={s.item} data-aos="fade-left" data-aos-delay="200">
+              <img className={s.gmi2} src="/Frame 20.png" alt="Фонарь" />
+              <p className={s.xt}>Фонарь</p>
+              <span className={s.frp}>Бесплатно</span>
+            </div>
+            <div className={s.item} data-aos="fade-left" data-aos-delay="300">
+              <img className={s.gmi3} src="/Frame 19.png" alt="Замок" />
+              <p className={s.xt}>Замок</p>
+              <span className={s.frp}>Бесплатно</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Фильтр и поиск */}
         <div className={s.filters}>
           <div className={s.days}>
             <p>Поиск велосипеда</p>
@@ -76,10 +99,11 @@ const Arenda = ({ bikes = [] }) => {
           </div>
         </div>
 
+        {/* Список велосипедов */}
         <div className={s.bikeList}>
           {visibleBikes.length > 0 ? (
             visibleBikes.map((bike, index) => (
-              <div className={s.bikeCard} data-aos="fade-up" data-aos-delay={index * 50} key={bike.id}>
+              <div className={s.bikeCard} data-aos="fade-up" data-aos-delay={index * 100} key={bike.id}>
                 <div className={s.bikeImageWrapper}>
                   <img src={bike.image} alt={bike.title} />
                 </div>
@@ -107,6 +131,7 @@ const Arenda = ({ bikes = [] }) => {
           )}
         </div>
 
+        {/* Кнопка "Показать ещё" */}
         {filteredBikes.length > 4 && (
           <div className={s.toggleButton}>
             <button onClick={() => setShowAll(!showAll)}>
@@ -116,6 +141,7 @@ const Arenda = ({ bikes = [] }) => {
         )}
       </div>
 
+      {/* Корзина */}
       <Korzina cartItems={cartItems} setCartItems={setCartItems} />
     </section>
   );
