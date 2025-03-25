@@ -1,0 +1,141 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background-color: #f2f4f7;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 📌 Стили "О нас" */
+.aboutSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 20px;
+  padding: 30px;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
+}
+
+.textContent {
+  width: 50%;
+
+  @media (max-width: 850px) {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.textContent h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1d2939;
+}
+
+.textContent p {
+  font-size: 16px;
+  color: #475467;
+  line-height: 1.6;
+}
+
+/* 📌 Горизонтальный свайпер (Отзывы) */
+.reviewsSection {
+  width: 100%;
+  text-align: center;
+  @media (max-width: 850px) {
+    display: none;
+  }
+}
+
+.reviewsSection h2 {
+  font-size: 24px;
+  color: #1d2939;
+  margin-bottom: 20px;
+}
+
+/* 📌 Горизонтальный слайдер */
+.slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 350px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+
+  span{
+    color: #23599f;
+  }
+}
+
+/* 📌 Вертикальный свайпер (Отзывы) */
+.reviewsSection2 {
+  width: 100%;
+  text-align: center;
+  display: flex;
+    place-items: center;
+    flex-direction: column;
+
+}
+
+.reviewsSection2 h2 {
+  font-size: 24px;
+  color: #1d2939;
+  margin-bottom: 20px;
+}
+
+/* 📌 Вертикальный слайдер */
+.reviewsSection2{
+  @media (min-width:850px ) {
+    display: none;
+  }
+
+}
+.verticalSlider {
+  max-width: 450px;
+  width: 100%; /* Ширина */
+  height: 400px; /* Высота */
+  overflow: hidden;
+  display: flex;
+  place-items: center;
+}
+
+/* 📌 Карточка отзыва (Вертикальный) */
+.reviewCard2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease-in-out;
+  p{
+    
+    flex-wrap: wrap;
+  }
+  span{
+    color: #23599f;
+  }
+}
